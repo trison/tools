@@ -28,13 +28,6 @@ mongoose.set('debug', true);
 
 // Add models
 require('./models/Articles');
-
-app.use((req, res, next) => {
-    const err = new Error('Not Found');
-    err.status = 404;
-    next(err);
-});
-
 // Add routes
 app.use(require('./routes'));
 
@@ -68,4 +61,4 @@ app.use((err, req, res) => {
   });
 });
 
-const server = app.listen(8000, () => console.log('Server started on http://localhost:8000'));
+app.listen(8000, () => console.log('Server started on http://localhost:8000'));
